@@ -7,22 +7,39 @@
 */
 
 // Task: Add code here
+class BaseSignal {
+    constructor() {
+        if(this.constructor.name === "BaseSignal"){ //Purpose: To ensure that the parent class cannot be instantiated again
+            throw new Error("This class cannot be instantiated");
+        }
+    }
+    send() {
+        console.log(`Sending ${this.x} signal`);
+    }
+}
 
 class TvSignal extends BaseSignal {
+   
     constructor(){
         // Add code here
+        super();
+        this.x = "tv";
     }
 }
 
 class AirconSignal extends BaseSignal {
     constructor(){
         // Add code here
+        super();
+        this.x = "door";
     }
 }
 
 class DoorSignal extends BaseSignal {
     constructor(){
         // Add code here
+        super();
+        this.x = "aircon";
     }
 }
 
@@ -33,4 +50,7 @@ const door = new DoorSignal();
 door.send(); // prints "Sending door signal"
 
 const aircon = new AirconSignal();
-aircon.send(); // prints "Sending aircon signal"
+aircon.send(); // prints "Sending aircon signal"*/
+
+//const myvar1 = new BaseSignal(); //This should throw an error
+//myvar1.send
